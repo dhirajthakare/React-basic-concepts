@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState,useEffect, useRef } from "react";
 function Forms() {
   let [name, setName] = useState("Dhiraj");
+  let [count,setCount] = useState(0);
+  let updatecount = useRef(0);
+  let forminputvalue = useRef(0);
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`Your Name is: ${name}`);
@@ -17,7 +22,43 @@ function Forms() {
   const handleMultiSubmit = (event) => {
     event.preventDefault();
     console.log(inputs);
+    console.log(forminputvalue.current.value);
+    // forminputvalue.current.value = "shubham";
+
+    // setValueInputs(previousState =>{
+    //     return {...previousState ,age:11}
+    //   });
+
   };
+
+  useEffect(() => {
+    updatecount.current = updatecount.current + 1;
+  },[name]);
+
+  // useEffect(() => {
+  //   console.log("hello",count);
+  //   var timer =  setTimeout(() => {
+  //    setCount((count) => count + 1);
+  //     console.log("hi");
+  //   }, 1000);
+
+  //   return () => clearTimeout(timer);
+  // },[count]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await fetch(`https://api.github.com/users/${inputs.username}`)
+  //       .then((res) => res.json())
+  //       .then((res) => console.log(res))
+  //       .catch((e) => console.error(e));
+  //   };
+
+  //   const timer = setTimeout(() => {
+  //     fetchData();
+  //   }, 5000);
+
+  //   return () => clearTimeout(timer);
+    
+  // }, [inputs.username]);
 
   return (
     <div className="">
@@ -31,6 +72,7 @@ function Forms() {
                 type="text"
                 className="form-control"
                 value={name}
+                ref={forminputvalue}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
@@ -40,11 +82,11 @@ function Forms() {
       </div>
 
       <div className="my-3">
-        <h6>Multi input form exmaple</h6>
+        <h6>Multi input form exmaple {updatecount.current} </h6>
 
         <form onSubmit={handleMultiSubmit}>
           <div className="form-group mb-3">
-            <label>Enter your name:</label>
+            <label>Enter your name: {inputs.username} </label>
             <input
               type="text"
               name="username"
@@ -55,7 +97,7 @@ function Forms() {
           </div>
 
           <div className="form-group mb-3">
-            <label>Enter your age:</label>
+            <label>Enter your age: {inputs.age}</label>
             <input
               type="number"
               name="age"

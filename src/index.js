@@ -8,6 +8,7 @@ import CarComp from "./common/CarComponant";
 
 import Forms from "./common/FromsComponant";
 import reportWebVitals from "./reportWebVitals";
+import Component1 from "./common/Component1";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,9 +17,17 @@ root.render(
     <div>
       <FirstComponant name="dhiraj" />
     </div>
-    <div className="col-md-4 m-4">
+    <div className="col-md-3 m-4">
       <h4>My Forms </h4>
       <Forms />
+    </div>
+    <div className="col-md-3 m-4 card card-body">
+      <h5> React Context </h5>
+
+      <div className=" my-4 ">
+      <Component1 />
+      </div>
+
     </div>
   </div>
 

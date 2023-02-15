@@ -19,7 +19,7 @@ class SecondComponant extends React.Component {
           </div>
 
           <div className="col-md-6">
-            <CarComp />
+            <CarComp color="gray" />
           </div>
         </div>
       </div>
