@@ -17,7 +17,7 @@ function Component1() {
     return (
       <>
        <div>
-       { count%10 != 0 && <Component6 name={user} />}
+       { count%10 == 0 && <Component6 name={user} />}
       <h4>Count = {count}</h4>
       <button onClick={countAdd} >Count</button>
        </div>

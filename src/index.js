@@ -9,6 +9,7 @@ import CarComp from "./common/CarComponant";
 import Forms from "./common/FromsComponant";
 import reportWebVitals from "./reportWebVitals";
 import Component1 from "./common/Component1";
+import Component6 from "./common/Component6";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,7 +26,10 @@ root.render(
       <h5> React Context </h5>
 
       <div className=" my-4 ">
-      <Component1 />
+      <Component1>
+        
+        <Component6/>
+      </Component1>
       </div>
 
     </div>
